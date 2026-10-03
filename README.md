@@ -4,7 +4,7 @@
 
 The official website of **INCASOFT Solutions**, a software company that builds custom software, web and mobile apps, business automation, POS/ERP systems, cloud integrations and AI-powered solutions for growing businesses.
 
-🌐 **Live site:** https://incasoftsolutions.qd.je/
+🌐 **Live site:** https://incaweb.vercel.app/
 
 ---
 

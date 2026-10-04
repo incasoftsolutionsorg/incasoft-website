@@ -54,7 +54,7 @@ This is a fast, responsive, single-page website built with React and TypeScript.
 
 ```bash
 # Clone the repository
-git clone https://github.com/Incasoftsolutions/incasoft-website.git
+git clone https://github.com/incasoftsolutionsorg/incasoft-website.git
 cd incasoft-website
 
 # Install dependencies
@@ -167,6 +167,12 @@ The site is deployed on **Vercel**.
 3. Add any environment variables (see above) in the Vercel project settings.
 
 Since the build output is plain static files, it can also be hosted on Netlify, GitHub Pages, Cloudflare Pages or any other static host.
+
+---
+
+## Contributing
+
+Work is tracked in [Issues](https://github.com/incasoftsolutionsorg/incasoft-website/issues) and grouped into [Milestones](https://github.com/incasoftsolutionsorg/incasoft-website/milestones). Before picking up an issue, read **[CONTRIBUTING.md](CONTRIBUTING.md)**. It covers branch names, commit messages (`Refs #12` / `Closes #12`) and the pull request review process.
 
 ---
 

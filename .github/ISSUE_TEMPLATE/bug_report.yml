@@ -1,0 +1,71 @@
+name: 🐞 Bug report
+description: Something on the website is broken, looks wrong, or doesn't work on a device.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! Please describe the problem clearly so whoever picks it up can fix it without guessing.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is the issue?
+      description: Describe what is wrong. Include the page and what you see.
+      placeholder: On the case study page, the product preview is wider than the screen on mobile, so the whole page scrolls sideways.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open /#/work/service-management-platform
+        2. Set the browser width to 360px (or open on a phone)
+        3. Scroll sideways
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+      placeholder: The page fits the screen width with no sideways scrolling.
+    validations:
+      required: true
+
+  - type: textarea
+    id: fix
+    attributes:
+      label: What to do to fix it
+      description: Suggested fix, if you know it. Leave blank if unsure.
+
+  - type: textarea
+    id: files
+    attributes:
+      label: Affected files
+      description: List the files (and line numbers if known) that need to change.
+      placeholder: |
+        - src/pages/CaseStudyPage.tsx (line 26)
+        - src/components/ProjectMock.tsx
+
+  - type: dropdown
+    id: device
+    attributes:
+      label: Where does it happen?
+      multiple: true
+      options:
+        - Mobile (under 640px)
+        - Tablet (640px – 1024px)
+        - Desktop (over 1024px)
+        - Light theme
+        - Dark theme
+        - All devices
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Drag and drop screenshots here if you have them.

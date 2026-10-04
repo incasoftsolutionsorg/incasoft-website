@@ -1,0 +1,42 @@
+name: 🛠️ Task / improvement
+description: A design, layout, content or code change that needs to be done.
+title: "[Task]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: issue
+    attributes:
+      label: What is the issue?
+      description: Why does this need to change? What is missing or not good enough today?
+    validations:
+      required: true
+
+  - type: textarea
+    id: todo
+    attributes:
+      label: What to do
+      description: The steps needed to complete this task.
+      placeholder: |
+        - [ ] Step 1
+        - [ ] Step 2
+    validations:
+      required: true
+
+  - type: textarea
+    id: files
+    attributes:
+      label: Affected files
+      placeholder: |
+        - src/pages/InsightsPage.tsx
+    validations:
+      required: true
+
+  - type: textarea
+    id: done
+    attributes:
+      label: Done when (acceptance criteria)
+      description: How will the reviewer know this is finished?
+      placeholder: |
+        - [ ] Works on mobile, tablet and desktop
+        - [ ] Works in light and dark theme
+        - [ ] `npm run build` passes

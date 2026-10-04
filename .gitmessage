@@ -1,3 +1,18 @@
+feat: publish initial Insights articles
+
+Add three complete Insights articles covering custom software, POS/ERP
+selection, and practical AI for business operations. Store article content
+in src/data/insights.ts and link the Insights listing to dedicated detail
+pages at /insights/:slug, with article-specific metadata and standard 404
+handling for unknown slugs.
+
+Remove the Coming soon badges and article placeholder copy. Keep Insights
+available in the existing header and footer navigation.
+
+Validation: npm run build passes; ESLint passes for the changed feature
+files. Responsive checks at 360px, 768px, and desktop in light and dark
+themes passed. Repository-wide lint still reports 14 pre-existing errors
+in unrelated files.
 
 # ── Commit message template ───────────────────────────────────────
 # Line 1: short summary (max ~60 chars), starting with a type:

@@ -11,11 +11,13 @@ import { WorkPage } from "@/pages/WorkPage";
 import { CaseStudyPage } from "@/pages/CaseStudyPage";
 import { AboutPage } from "@/pages/AboutPage";
 import { InsightsPage } from "@/pages/InsightsPage";
+import { InsightArticlePage } from "@/pages/InsightArticlePage";
 import { ContactPage } from "@/pages/ContactPage";
 import { StartProjectPage } from "@/pages/StartProjectPage";
 import { NotFoundPage } from "@/pages/NotFoundPage";
 import { solutions } from "@/data/solutions";
 import { projects } from "@/data/projects";
+import { insights } from "@/data/insights";
 import { company } from "@/data/company";
 
 const baseTitle = "INCASOFT Solutions | Software & Digital Solutions";
@@ -64,10 +66,15 @@ function RouteView() {
     page = <AboutPage />;
     title = "About | INCASOFT Solutions";
     desc = `${company.tagline} Learn how INCASOFT Solutions builds practical software around real business requirements.`;
-  } else if (segments[0] === "insights") {
+  } else if (segments[0] === "insights" && segments.length === 1) {
     page = <InsightsPage />;
     title = "Insights | INCASOFT Solutions";
     desc = "Practical notes on software, automation and digital transformation for growing businesses.";
+  } else if (segments[0] === "insights" && segments.length === 2) {
+    const article = insights.find((item) => item.slug === segments[1]);
+    page = <InsightArticlePage slug={segments[1]} />;
+    title = article ? `${article.title} | INCASOFT Insights` : "Page Not Found | INCASOFT Solutions";
+    desc = article ? article.description : "The page you're looking for doesn't exist.";
   } else if (segments[0] === "contact") {
     page = <ContactPage />;
     title = "Contact | INCASOFT Solutions";

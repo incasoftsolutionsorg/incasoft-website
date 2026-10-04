@@ -1,0 +1,17 @@
+
+# ── Commit message template ───────────────────────────────────────
+# Line 1: short summary (max ~60 chars), starting with a type:
+#   fix:      a bug fix                fix: stop case study page scrolling sideways on mobile
+#   feat:     a new feature or section feat: add first insights article
+#   design:   layout / visual change   design: make chat button compact on mobile
+#   chore:    cleanup, config, deps    chore: remove leftover Vite template files
+#   docs:     README / docs only       docs: add deployment notes
+#
+# Line 2: leave empty.
+# Line 3+: (optional) what you changed and why.
+#
+# Last line: link the issue
+#   Refs #12    → links the commit to issue #12 (use while work is in progress)
+#   Closes #12  → closes issue #12 when this reaches the main branch
+#
+# Lines starting with # are ignored.

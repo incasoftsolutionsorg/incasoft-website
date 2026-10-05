@@ -1,20 +1,19 @@
 
-import { ArrowLeft, Check } from "lucide-react";
+import { ArrowLeft, Check, Info, ShieldCheck } from "lucide-react";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
-import { ProjectMock } from "@/components/ProjectMock";
+import { ProjectCover } from "@/components/ProjectCover";
+import { ProjectGallery } from "@/components/ProjectGallery";
 import { CTA } from "@/components/CTA";
 import { Link } from "@/lib/router";
-import { projects } from "@/data/projects";
+import { getProjectBySlug } from "@/data/projects";
 import { FinalCTA } from "@/sections/home/FinalCTA";
 import { NotFoundPage } from "@/pages/NotFoundPage";
 
 export function CaseStudyPage({ slug }: { slug: string }) {
-  const project = projects.find((p) => p.slug === slug);
+  const project = getProjectBySlug(slug);
 
   if (!project) return <NotFoundPage />;
-
-  const hasResults = Boolean(project.results?.length);
 
   return (
     <>
@@ -38,8 +37,9 @@ export function CaseStudyPage({ slug }: { slug: string }) {
           <Reveal>
             <div className="relative min-w-0">
               <div className="w-full overflow-hidden rounded-xl sm:rounded-2xl">
-                <ProjectMock
-                  accent={project.accent}
+                <ProjectCover
+                  project={project}
+                  eager
                   className="
                     aspect-[16/10]
                     w-full
@@ -50,6 +50,7 @@ export function CaseStudyPage({ slug }: { slug: string }) {
                 />
               </div>
 
+              {project.isDemo && (
               <span
                 className="
                   absolute
@@ -75,8 +76,20 @@ export function CaseStudyPage({ slug }: { slug: string }) {
               >
                 Demo project
               </span>
+              )}
             </div>
           </Reveal>
+
+          {/* -------------------------------------------------------
+              LIVE PROJECT LINK
+          ------------------------------------------------------- */}
+          {project.liveUrl && (
+            <div className="mt-6 flex justify-center sm:mt-8">
+              <CTA href={project.liveUrl} external variant="ghost-light">
+                View live project
+              </CTA>
+            </div>
+          )}
 
           {/* -------------------------------------------------------
               MAIN CONTENT + SIDEBAR
@@ -98,8 +111,47 @@ export function CaseStudyPage({ slug }: { slug: string }) {
             ===================================================== */}
             <div className="min-w-0 space-y-10 sm:space-y-12">
               {/* ---------------------------------------------------
+                  OVERVIEW
+              --------------------------------------------------- */}
+              {project.overview && (
+                <Reveal>
+                  <h2 className="eyebrow">Overview</h2>
+
+                  <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground sm:mt-4 sm:text-[15px] md:text-base">
+                    {project.overview}
+                  </p>
+
+                  {project.highlights && project.highlights.length > 0 && (
+                    <div className="mt-5 flex flex-wrap gap-2">
+                      {project.highlights.map((h) => (
+                        <span
+                          key={h}
+                          className="rounded-full bg-accent/10 px-3 py-1.5 text-xs font-semibold text-accent"
+                        >
+                          {h}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </Reveal>
+              )}
+
+              {/* ---------------------------------------------------
+                  NOTE / DISCLAIMER
+              --------------------------------------------------- */}
+              {project.note && (
+                <Reveal>
+                  <p className="flex items-start gap-2.5 rounded-xl border border-dashed border-border bg-[hsl(var(--soft))] p-4 text-[13px] leading-relaxed text-muted-foreground sm:text-sm">
+                    <Info className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
+                    {project.note}
+                  </p>
+                </Reveal>
+              )}
+
+              {/* ---------------------------------------------------
                   CHALLENGE
               --------------------------------------------------- */}
+              {project.challenge && (
               <Reveal>
                 <h2 className="eyebrow">The challenge</h2>
 
@@ -117,10 +169,12 @@ export function CaseStudyPage({ slug }: { slug: string }) {
                   {project.challenge}
                 </p>
               </Reveal>
+              )}
 
               {/* ---------------------------------------------------
                   SOLUTION
               --------------------------------------------------- */}
+              {project.solution && (
               <Reveal>
                 <h2 className="eyebrow">The solution</h2>
 
@@ -138,6 +192,33 @@ export function CaseStudyPage({ slug }: { slug: string }) {
                   {project.solution}
                 </p>
               </Reveal>
+              )}
+
+              {/* ---------------------------------------------------
+                  CHALLENGES & SOLUTIONS (multiple)
+              --------------------------------------------------- */}
+              {project.challenges && project.challenges.length > 0 && (
+                <Reveal>
+                  <h2 className="eyebrow">Challenges &amp; solutions</h2>
+
+                  <ol className="mt-4 space-y-3 sm:mt-5">
+                    {project.challenges.map((c, i) => (
+                      <li key={c.challenge} className="rounded-xl border border-border p-4 sm:p-5">
+                        <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-accent sm:text-[11px]">
+                          Challenge {String(i + 1).padStart(2, "0")}
+                        </p>
+                        <p className="mt-1.5 text-[14px] font-semibold leading-relaxed text-heading sm:text-[15px]">
+                          {c.challenge}
+                        </p>
+                        <p className="mt-2 text-[13px] leading-relaxed text-muted-foreground sm:text-sm">
+                          <span className="font-semibold text-heading/80">Solution: </span>
+                          {c.solution}
+                        </p>
+                      </li>
+                    ))}
+                  </ol>
+                </Reveal>
+              )}
 
               {/* ---------------------------------------------------
                   KEY FEATURES
@@ -202,85 +283,112 @@ export function CaseStudyPage({ slug }: { slug: string }) {
               </Reveal>
 
               {/* ---------------------------------------------------
-                  RESULTS
+                  ARCHITECTURE
               --------------------------------------------------- */}
-              <Reveal>
-                <h2 className="eyebrow">Results</h2>
+              {project.architecture && project.architecture.length > 0 && (
+                <Reveal>
+                  <h2 className="eyebrow">Architecture</h2>
 
-                {hasResults ? (
-                  <ul
-                    className="
-                      mt-4
-                      grid
-                      gap-3
-                      sm:grid-cols-2
-                    "
-                  >
-                    {project.results?.map((result) => (
-                      <li
-                        key={result}
-                        className="
-                          rounded-xl
-                          border
-                          border-border
-                          bg-[hsl(var(--soft))]
-                          p-4
-                          text-[13px]
-                          font-medium
-                          leading-relaxed
-                          text-heading
-                          sm:p-5
-                          sm:text-sm
-                        "
+                  <div className="mt-4 flex flex-wrap gap-2 sm:mt-5">
+                    {project.architecture.map((a) => (
+                      <span
+                        key={a}
+                        className="rounded-full border border-border bg-[hsl(var(--soft))] px-3 py-1.5 text-xs font-medium text-heading sm:text-[13px]"
                       >
-                        {result}
+                        {a}
+                      </span>
+                    ))}
+                  </div>
+                </Reveal>
+              )}
+
+              {/* ---------------------------------------------------
+                  SECURITY
+              --------------------------------------------------- */}
+              {project.security && project.security.length > 0 && (
+                <Reveal>
+                  <h2 className="eyebrow">Security &amp; protection</h2>
+
+                  <ul className="mt-4 grid gap-2.5 sm:mt-5 sm:grid-cols-2 sm:gap-3">
+                    {project.security.map((item) => (
+                      <li key={item} className="flex min-w-0 items-start gap-2.5 text-[13px] leading-relaxed text-heading sm:text-sm">
+                        <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
+                        <span className="min-w-0 break-words">{item}</span>
                       </li>
                     ))}
                   </ul>
-                ) : (
-                  <div
-                    className="
-                      mt-3
-                      max-w-xl
-                      rounded-xl
-                      border
-                      border-dashed
-                      border-border
-                      bg-[hsl(var(--soft))]
-                      p-5
-                      sm:mt-4
-                      sm:p-6
-                    "
-                  >
-                    <p
-                      className="
-                        text-[13px]
-                        font-medium
-                        leading-relaxed
-                        text-heading
-                        sm:text-sm
-                      "
-                    >
-                      No client results are published for this
-                      demonstration project.
+                </Reveal>
+              )}
+
+              {/* ---------------------------------------------------
+                  SCREENSHOTS
+              --------------------------------------------------- */}
+              {project.gallery && project.gallery.length > 0 && (
+                <Reveal>
+                  <h2 className="eyebrow">Screenshots</h2>
+                  <p className="mt-3 text-[13px] text-muted-foreground sm:text-sm">
+                    Click a screenshot to enlarge.
+                  </p>
+                  <ProjectGallery title={project.title} images={project.gallery} />
+                </Reveal>
+              )}
+
+              {/* ---------------------------------------------------
+                  RESULTS
+              --------------------------------------------------- */}
+              {(project.outcome || (project.results && project.results.length > 0)) && (
+                <Reveal>
+                  <h2 className="eyebrow">Outcome</h2>
+
+                  {project.outcome && (
+                    <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground sm:mt-4 sm:text-[15px] md:text-base">
+                      {project.outcome}
+                    </p>
+                  )}
+
+                  {project.results && project.results.length > 0 && (
+                  <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+                    {project.results.map((r) => (
+                      <li
+                        key={r}
+                        className="rounded-xl border border-border bg-[hsl(var(--soft))] p-4 text-[13px] font-medium leading-relaxed text-heading sm:p-5 sm:text-sm"
+                      >
+                        {r}
+                      </li>
+                    ))}
+                  </ul>
+                  )}
+                </Reveal>
+              )}
+
+              {/* ---------------------------------------------------
+                  ROLE
+              --------------------------------------------------- */}
+              {project.role && (
+                <Reveal>
+                  <h2 className="eyebrow">Our role</h2>
+                  <p className="mt-3 text-[14px] leading-relaxed text-muted-foreground sm:mt-4 sm:text-[15px] md:text-base">
+                    {project.role}
+                  </p>
+                </Reveal>
+              )}
+
+              {project.isDemo && (
+                <Reveal>
+                  <h2 className="eyebrow">Results</h2>
+
+                  <div className="mt-3 max-w-xl rounded-xl border border-dashed border-border bg-[hsl(var(--soft))] p-5 sm:mt-4 sm:p-6">
+                    <p className="text-[13px] font-medium leading-relaxed text-heading sm:text-sm">
+                      No client results are published for this demonstration project.
                     </p>
 
-                    <p
-                      className="
-                        mt-2
-                        text-[12px]
-                        leading-relaxed
-                        text-muted-foreground
-                        sm:text-sm
-                      "
-                    >
-                      Approved client case studies will include measurable
-                      outcomes here when results are available and cleared
-                      for public sharing.
+                    <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground sm:text-sm">
+                      Approved client case studies will include measurable outcomes here when results are available and
+                      cleared for public sharing.
                     </p>
                   </div>
-                )}
-              </Reveal>
+                </Reveal>
+              )}
             </div>
 
             {/* =====================================================
@@ -349,6 +457,16 @@ export function CaseStudyPage({ slug }: { slug: string }) {
                       </dd>
                     </div>
 
+                    {/* Category */}
+                    {project.category && (
+                      <div className="flex items-start justify-between gap-4">
+                        <dt className="shrink-0 text-muted-foreground">Type</dt>
+                        <dd className="min-w-0 break-words text-right font-semibold text-heading">
+                          {project.category}
+                        </dd>
+                      </div>
+                    )}
+
                     {/* Services */}
                     <div
                       className="
@@ -400,7 +518,7 @@ export function CaseStudyPage({ slug }: { slug: string }) {
                           sm:text-xs
                         "
                       >
-                        Demonstration
+                        {project.isDemo ? "Demonstration" : project.status ?? "Completed"}
                       </dd>
                     </div>
                   </dl>
@@ -512,4 +630,3 @@ export function CaseStudyPage({ slug }: { slug: string }) {
     </>
   );
 }
-

@@ -12,7 +12,7 @@ import {
  * hosting (no server rewrites needed) while supporting shareable URLs.
  */
 
-export type Route = string; // e.g. "/", "/solutions", "/work/retail-management-platform"
+export type Route = string; // e.g. "/", "/solutions", "/work/salon-management-system"
 
 function readHash(): Route {
   const raw = window.location.hash.replace(/^#/, "");

@@ -1,112 +1,65 @@
+import projectsData from "./projects.json";
 
+/**
+ * Portfolio / case studies.
+ *
+ * Content lives in `projects.json` — add, remove or reorder projects there
+ * (array order is display order). Images go in `public/image/projects/<slug>/`.
+ */
 export interface Project {
   slug: string;
   title: string;
   industry: string;
+  /** Short type label, e.g. "Web Application" */
+  category?: string;
   tags: string[];
+  /** Short highlight chips shown on the case study page */
+  highlights?: string[];
   summary: string;
-  challenge: string;
-  solution: string;
+  /** Longer description shown at the top of the case study */
+  overview?: string;
+  /** Single problem/approach pair. Use `challenges` instead for several. */
+  challenge?: string;
+  solution?: string;
+  /** Several numbered challenge/solution pairs */
+  challenges?: { challenge: string; solution: string }[];
   features: string[];
   technology: string[];
+  /** Architecture building blocks, shown as chips */
+  architecture?: string[];
+  /** Security measures, shown as a checklist */
+  security?: string[];
+  /** What we did on the project */
+  role?: string;
+  /** Main image used on cards and the case study hero. Falls back to the mock UI. */
+  coverImage?: string;
+  /** Screenshots shown in the case study gallery */
+  gallery?: string[];
+  /** Outcome paragraph, shown in the "Outcome" section */
+  outcome?: string;
+  /** Measurable results, listed in the "Outcome" section */
   results?: string[];
-
-  /** Visual accent for the project mock UI */
+  /** Public URL of the running project — shows a "View live project" button */
+  liveUrl?: string;
+  /** Short disclaimer / note shown under the overview */
+  note?: string;
+  /** e.g. "Completed", "In progress". Demo projects always show "Demo". */
+  status?: string;
+  /** Visual accent for the code-drawn mock UI, used when there is no coverImage */
   accent: "pos" | "dashboard" | "service";
-
-  /** True when the project is a demonstration project */
   isDemo: boolean;
+  /** Shown in the home page "Selected work" section (first 3 are used) */
+  featured?: boolean;
 }
 
-export const projects: Project[] = [
-  {
-    slug: "retail-management-platform",
-    title: "Retail Management Platform",
-    industry: "Retail & Wholesale",
-    tags: ["POS", "Inventory", "Web Application"],
-    summary:
-      "A connected retail platform unifying point-of-sale, inventory, customers and reporting across a multi-branch retail operation.",
-    challenge:
-      "Retail operations often run on disconnected tools — a POS here, a stock spreadsheet there, reports assembled by hand. Staff spend hours reconciling numbers, and management makes decisions on stale data.",
-    solution:
-      "A single web platform connecting billing, stock, suppliers, customers and finance. Sales update inventory in real time, managers see live dashboards, and reports generate themselves.",
-    features: [
-      "Fast touchscreen point-of-sale with offline fallback",
-      "Real-time, multi-branch inventory tracking",
-      "Supplier and purchase-order management",
-      "Customer accounts and loyalty tracking",
-      "Daily, weekly and custom sales reports",
-    ],
-    technology: [
-      "React",
-      "TypeScript",
-      "Node.js",
-      "PostgreSQL",
-      "REST API",
-      "Docker",
-    ],
-    accent: "pos",
-    isDemo: true,
-  },
+export const projects = projectsData as Project[];
 
-  {
-    slug: "business-operations-dashboard",
-    title: "Business Operations Dashboard",
-    industry: "Business Automation",
-    tags: ["Automation", "Analytics", "Web"],
-    summary:
-      "A real-time operations dashboard that pulls data from across the business and turns it into clear, actionable visibility.",
-    challenge:
-      "When key numbers live in five different systems, nobody sees the whole picture. Reporting becomes a weekly manual project instead of a daily habit, and problems surface late.",
-    solution:
-      "An automated analytics layer that connects existing systems through APIs, aggregates the data and presents live KPIs, trends and alerts in one clean dashboard.",
-    features: [
-      "Live KPI and trend dashboards",
-      "Automated data sync from multiple sources",
-      "Threshold alerts and notifications",
-      "Role-based views for management and teams",
-      "Scheduled report exports",
-    ],
-    technology: [
-      "Next.js",
-      "TypeScript",
-      "Node.js",
-      "PostgreSQL",
-      "Charting",
-      "Cloud",
-    ],
-    accent: "dashboard",
-    isDemo: true,
-  },
+export const FEATURED_LIMIT = 3;
 
-  {
-    slug: "service-management-platform",
-    title: "Service Management Platform",
-    industry: "Repairs & Services",
-    tags: ["Workflow", "Customer Management", "Automation"],
-    summary:
-      "A job-tracking and customer-management platform for service businesses — from first call to final invoice.",
-    challenge:
-      "Service businesses live on job cards, phone calls and memory. Jobs get lost, customers call for updates, and invoices go out days late — all of it costing time and trust.",
-    solution:
-      "A workflow platform where every job has a clear status, customers get automatic updates, technicians see their schedule, and invoices generate the moment work is done.",
-    features: [
-      "Job intake, assignment and status tracking",
-      "Automatic customer status notifications",
-      "Technician scheduling and mobile access",
-      "Quotation-to-invoice workflow",
-      "Service history per customer",
-    ],
-    technology: [
-      "React",
-      "TypeScript",
-      "Node.js",
-      "PostgreSQL",
-      "SMS/WhatsApp API",
-      "Cloud",
-    ],
-    accent: "service",
-    isDemo: true,
-  },
-];
+export function getFeaturedProjects(limit = FEATURED_LIMIT): Project[] {
+  return projects.filter((p) => p.featured).slice(0, limit);
+}
 
+export function getProjectBySlug(slug: string): Project | undefined {
+  return projects.find((p) => p.slug === slug);
+}

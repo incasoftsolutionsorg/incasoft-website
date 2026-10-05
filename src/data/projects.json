@@ -1,0 +1,426 @@
+[
+  {
+    "slug": "salon-management-system",
+    "title": "Salon Management System",
+    "industry": "Salon & Beauty",
+    "category": "Web Application",
+    "tags": [
+      "Bookings",
+      "E-commerce",
+      "Web Application"
+    ],
+    "highlights": [
+      "MERN monorepo",
+      "Real-time + Stripe",
+      "Salon-ready workflows"
+    ],
+    "summary": "MERN stack salon operations: bookings, e-commerce, inventory, staff, customers, billing, and analytics.",
+    "overview": "A comprehensive MERN stack application for managing salon operations including bookings, e-commerce, inventory, staff management, and customer relations. The codebase is organized as a monorepo with a Vite + React client, Express API server, shared utilities, documentation, and helper scripts. Real-time features use Socket.IO; payments use Stripe; media uses Cloudinary; transactional email uses Nodemailer and SMS uses Twilio.",
+    "challenge": "Salons juggle bookings, retail, staff rotas, and stock in separate tools with no single source of truth.",
+    "solution": "A unified MERN application with Redux Toolkit on the client, REST + Socket.IO on the server, MongoDB for persistence, and integrations for payments, media, email, and SMS.",
+    "features": [
+      "Booking system — multi-step flow with service selection, beautician assignment, and time slots",
+      "E-commerce — product catalog, cart, and checkout",
+      "Chat and chatbot — real-time messaging with AI-assisted bot",
+      "Staff management — beautician profiles, schedules, and performance tracking",
+      "Inventory management — stock levels, alerts, and supplier tracking",
+      "Billing and invoicing — invoices and payment processing",
+      "Analytics and reports — dashboards and operational reporting",
+      "Settings — configurable business and app settings"
+    ],
+    "technology": [
+      "React",
+      "Redux Toolkit",
+      "React Router",
+      "Tailwind CSS",
+      "Vite",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Mongoose",
+      "Socket.IO",
+      "Stripe",
+      "Cloudinary",
+      "Nodemailer",
+      "Twilio"
+    ],
+    "coverImage": "/image/projects/salon/ss1.png",
+    "gallery": [
+      "/image/projects/salon/ss1.png",
+      "/image/projects/salon/ss2.png",
+      "/image/projects/salon/ss3.png",
+      "/image/projects/salon/ss4.png",
+      "/image/projects/salon/ss5.png",
+      "/image/projects/salon/ss6.png",
+      "/image/projects/salon/ss7.png",
+      "/image/projects/salon/ss8.png",
+      "/image/projects/salon/ss9.png"
+    ],
+    "status": "Completed",
+    "accent": "service",
+    "isDemo": false,
+    "featured": true
+  },
+  {
+    "slug": "bookinglk",
+    "title": "BookingLK",
+    "industry": "Travel & Hospitality",
+    "category": "Web Application",
+    "tags": [
+      "Hotel Booking",
+      "Full-stack",
+      "Web Application"
+    ],
+    "highlights": [
+      "Next.js App Router",
+      "Secure auth + email OTP",
+      "Responsive animated UI"
+    ],
+    "summary": "A full-stack hotel booking platform for discovering, comparing and booking accommodation across Sri Lanka.",
+    "overview": "BookingLK is a modern full-stack hotel booking platform designed for travelers to discover, compare and book accommodations across Sri Lanka. The platform focuses on a smooth search experience, detailed hotel information, responsive design and a scalable booking architecture.",
+    "challenges": [
+      {
+        "challenge": "Designing a booking flow that remains simple while supporting multiple booking states.",
+        "solution": "Separated frontend UI, API and database responsibilities."
+      },
+      {
+        "challenge": "Handling hotel, room, availability and booking relationships.",
+        "solution": "Designed reusable components for hotels, rooms and booking interfaces."
+      },
+      {
+        "challenge": "Building a responsive interface that works consistently across desktop and mobile devices.",
+        "solution": "Used responsive Tailwind layouts and dedicated mobile behavior."
+      },
+      {
+        "challenge": "Keeping animations smooth without negatively affecting usability.",
+        "solution": "Used Framer Motion for controlled and performant UI transitions."
+      },
+      {
+        "challenge": "Designing authentication and API access in a secure and maintainable way.",
+        "solution": "Implemented server-side validation, protected API routes and secure authentication patterns."
+      }
+    ],
+    "features": [
+      "Hotel discovery and destination-based search",
+      "Hotel details and property information",
+      "Room and availability management",
+      "Guest and date selection",
+      "Booking workflow",
+      "User authentication",
+      "Booking confirmation flow",
+      "Favorites and reviews architecture",
+      "Responsive desktop and mobile interface",
+      "Modern animated UI and micro-interactions"
+    ],
+    "technology": [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "MongoDB",
+      "Mongoose"
+    ],
+    "architecture": [
+      "Next.js App Router",
+      "React + TypeScript",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Next.js API Routes",
+      "MongoDB Atlas",
+      "Mongoose",
+      "Secure authentication architecture"
+    ],
+    "security": [
+      "Password hashing for user authentication",
+      "HttpOnly cookie-based sessions",
+      "Input validation for authentication and booking data",
+      "Protected API routes for sensitive operations",
+      "Role-based authorization",
+      "Database access handled through server-side APIs",
+      "Environment variables for sensitive configuration",
+      "Email receipt with full booking details after a successful booking",
+      "API validation and error handling for malformed requests",
+      "Email OTP verification for registration and password changes"
+    ],
+    "outcome": "Created a scalable hotel-booking foundation with a premium user experience and a structure that can be extended with payments, hotel-owner dashboards, notifications, security monitoring and recommendation systems.",
+    "role": "Designed and developed the application architecture, frontend interface, API integration, database structure, security architecture and responsive user experience.",
+    "coverImage": "/image/projects/bookinglk/ss1.png",
+    "gallery": [
+      "/image/projects/bookinglk/ss1.png",
+      "/image/projects/bookinglk/ss2.png",
+      "/image/projects/bookinglk/ss3.png",
+      "/image/projects/bookinglk/ss4.png",
+      "/image/projects/bookinglk/ss5.png"
+    ],
+    "status": "Completed",
+    "accent": "pos",
+    "isDemo": false,
+    "featured": true
+  },
+  {
+    "slug": "smartpos-pro",
+    "title": "SmartPOS Pro",
+    "industry": "Retail & Wholesale",
+    "category": "Web Application",
+    "tags": [
+      "POS",
+      "Inventory",
+      "Web Application"
+    ],
+    "highlights": [
+      "Next.js + TypeScript",
+      "JWT authentication",
+      "Responsive dashboard"
+    ],
+    "summary": "A point-of-sale and business management web app covering products, customers, suppliers, sales, invoices and reports.",
+    "overview": "A software project focused on solving practical problems through modern technology, thoughtful interface design and maintainable engineering.",
+    "challenges": [
+      {
+        "challenge": "Designing a clean and responsive user experience.",
+        "solution": "Created reusable UI components."
+      },
+      {
+        "challenge": "Maintaining reusable and maintainable components.",
+        "solution": "Used responsive layouts and modern frontend patterns."
+      },
+      {
+        "challenge": "Balancing visual effects with performance.",
+        "solution": "Separated reusable logic from presentation."
+      },
+      {
+        "challenge": "Maintaining secure application boundaries.",
+        "solution": "Applied security-aware application architecture."
+      }
+    ],
+    "features": [
+      "Responsive user interface",
+      "Reusable components",
+      "Modern application architecture",
+      "Interactive user experience",
+      "Scalable project structure"
+    ],
+    "technology": [
+      "Next.js",
+      "TypeScript",
+      "MongoDB",
+      "JWT",
+      "Tailwind CSS"
+    ],
+    "architecture": [
+      "React",
+      "TypeScript",
+      "Modern component architecture",
+      "Responsive UI"
+    ],
+    "security": [
+      "Input validation",
+      "Protected application routes",
+      "Secure environment configuration",
+      "Server-side handling of sensitive operations",
+      "Authentication and authorization architecture",
+      "Secure error handling"
+    ],
+    "outcome": "Delivered a modern application foundation that can be extended with additional features, security controls and production-ready services.",
+    "role": "Designed and developed the project from concept through implementation, focusing on frontend engineering, UI/UX, application architecture and security considerations.",
+    "liveUrl": "https://smart-pos-indol.vercel.app/login",
+    "coverImage": "/image/projects/smartpos-pro/ss1.png",
+    "gallery": [
+      "/image/projects/smartpos-pro/ss1.png",
+      "/image/projects/smartpos-pro/ss2.png",
+      "/image/projects/smartpos-pro/ss3.png",
+      "/image/projects/smartpos-pro/ss4.png",
+      "/image/projects/smartpos-pro/ss5.png",
+      "/image/projects/smartpos-pro/ss6.png"
+    ],
+    "status": "Completed",
+    "accent": "pos",
+    "isDemo": false,
+    "featured": true
+  },
+  {
+    "slug": "tea-factory-management-system",
+    "title": "Cooroonduwatte Tea Factory Management System",
+    "industry": "Agriculture & Manufacturing",
+    "category": "Web Application",
+    "tags": [
+      "Operations",
+      "Data Management",
+      "Web Application"
+    ],
+    "highlights": [
+      "Next.js full-stack",
+      "JWT + HTTP-only cookies",
+      "Light & dark themes"
+    ],
+    "summary": "A full-stack web app that digitizes a tea factory’s collection areas, suppliers, daily tea weights and operational statistics.",
+    "overview": "Cooroonduwatte Tea Factory Management System is a full-stack web application developed to digitize and simplify the day-to-day operations of a tea factory. Administrators can manage collection areas, register and update suppliers, record daily tea weights, track factory scale measurements, and monitor differences between collected and factory-recorded weights. A dashboard provides an overview of daily collection performance, area-wise statistics, collection totals and weight information, on both desktop and mobile devices.",
+    "challenge": "Tea collection records were kept manually across many areas and suppliers, making it hard to keep data accurate and to see daily factory operations at a glance.",
+    "solution": "A centralized digital platform that replaces manual record management — improving data accuracy, reducing manual work, simplifying collection tracking and giving better visibility into daily operations.",
+    "features": [
+      "Secure administrator authentication and login",
+      "JWT-based authentication with protected routes",
+      "Area management with automatic Area ID generation",
+      "Supplier management with full CRUD operations",
+      "Multiple supplier registration for a selected area",
+      "Daily and area-wise tea collection management",
+      "Field and factory weight recording",
+      "Automatic weight difference calculation",
+      "Date-based and area-based filtering and analysis",
+      "Dashboard statistics and operational summaries",
+      "Detailed area collection views",
+      "Edit and delete collection records",
+      "Responsive desktop and mobile layouts",
+      "Light and dark theme support",
+      "Form validation and error handling",
+      "REST-style backend APIs with MongoDB storage"
+    ],
+    "technology": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Lucide React",
+      "Node.js",
+      "JWT",
+      "MongoDB",
+      "Mongoose"
+    ],
+    "architecture": [
+      "Next.js frontend",
+      "Next.js API Routes",
+      "Mongoose",
+      "MongoDB",
+      "Next.js middleware route protection",
+      "Environment-based configuration"
+    ],
+    "security": [
+      "JWT-based authentication",
+      "HTTP-only authentication cookies",
+      "Protected dashboard routes",
+      "Middleware-based route protection",
+      "Server-side authentication checks",
+      "Input validation",
+      "Error handling for invalid requests",
+      "Database-level validation through Mongoose schemas",
+      "Environment variables for database credentials and JWT secrets",
+      "Separation of frontend UI and backend API logic"
+    ],
+    "outcome": "Replaced manual tea factory record management with a centralized system, ready to be extended with payments, advanced reports, user roles and permissions, automated backups, notifications and financial management.",
+    "coverImage": "/image/projects/tea-factory/ss1.png",
+    "gallery": [
+      "/image/projects/tea-factory/ss1.png",
+      "/image/projects/tea-factory/ss2.png",
+      "/image/projects/tea-factory/ss3.png",
+      "/image/projects/tea-factory/ss4.png"
+    ],
+    "status": "Completed",
+    "accent": "dashboard",
+    "isDemo": false,
+    "featured": false
+  },
+  {
+    "slug": "cafe-pos-system",
+    "title": "Café POS System",
+    "industry": "Hospitality & Food Service",
+    "category": "Web Application",
+    "tags": [
+      "POS",
+      "Real-time",
+      "Payments"
+    ],
+    "highlights": [
+      "Live orders",
+      "Stripe payments",
+      "Ops analytics"
+    ],
+    "summary": "A modern web-based café POS with real-time order management, Stripe payments and an analytics dashboard.",
+    "overview": "A full-stack café management system with real-time order processing, payment gateway integration, and a comprehensive analytics dashboard for business insights.",
+    "challenge": "Café staff juggled paper tickets and slow payment flows during peak hours.",
+    "solution": "A real-time web POS with sockets for the floor and kitchen, plus Stripe checkout.",
+    "features": [
+      "Real-time order management",
+      "Payment gateway integration",
+      "Analytics dashboard",
+      "Table management",
+      "Kitchen display system",
+      "Customer loyalty program"
+    ],
+    "technology": [
+      "React",
+      "Node.js",
+      "PostgreSQL",
+      "Socket.io",
+      "Stripe"
+    ],
+    "coverImage": "/image/projects/cafe-pos/ss1.png",
+    "gallery": [
+      "/image/projects/cafe-pos/ss1.png",
+      "/image/projects/cafe-pos/ss2.png",
+      "/image/projects/cafe-pos/ss3.png",
+      "/image/projects/cafe-pos/ss4.png",
+      "/image/projects/cafe-pos/ss5.png",
+      "/image/projects/cafe-pos/ss6.png",
+      "/image/projects/cafe-pos/ss7.png"
+    ],
+    "status": "Completed",
+    "accent": "pos",
+    "isDemo": false,
+    "featured": false
+  },
+  {
+    "slug": "hotel-checkin-data-scraper",
+    "title": "Hotel Check-in Data Scraper",
+    "industry": "Travel & Hospitality",
+    "category": "Data & Analytics",
+    "tags": [
+      "Web Scraping",
+      "Analytics",
+      "Python"
+    ],
+    "highlights": [
+      "Educational scraper architecture",
+      "Sri Lanka hotel analytics",
+      "Ethical rate-limited design"
+    ],
+    "summary": "An educational multi-source hotel check-in scraper with a Sri Lanka hotel analytics dashboard.",
+    "overview": "A complete learning project that teaches web scraping architecture from beginner to production: modular scrapers for Booking.com, Agoda, Expedia, SLTDA and data.gov.lk; parsers and storage layers; rate limiting, retries and structured logging; plus an analytics surface for hotel check-in and occupancy insights. Designed for educational use with ethical scraping practices — robots.txt respect, rate limits, and no CAPTCHA bypass.",
+    "note": "Educational use only. The scrapers respect robots.txt, site terms and rate limits (about one request every 3–5 seconds), use a descriptive User-Agent and stop if blocked by a CAPTCHA. Government sources (SLTDA, data.gov.lk) are public; scraped data is not republished or used commercially.",
+    "challenge": "Learning production-grade scraping needs a realistic domain: multi-source hotel check-in data with rate limits, brittle selectors and analytics — not a toy single-file script.",
+    "solution": "A layered Python system with abstract scrapers, parsers and storage, config-driven selectors, ethical rate limiting, tests, and a hosted analytics UI for Sri Lanka hotel insights.",
+    "features": [
+      "Multi-source scrapers — Booking, Agoda, Expedia, SLTDA and data.gov.lk",
+      "Modular pipeline — CLI → scrapers → parsers → CSV/JSON/DB storage",
+      "Rate limiting, proxy/UA rotation, and retry with backoff",
+      "Pydantic data models for hotel check-in records",
+      "Unit, integration, selector health and data-quality tests",
+      "Analytics dashboard for check-ins and occupancy insights"
+    ],
+    "technology": [
+      "Python",
+      "Playwright",
+      "BeautifulSoup",
+      "requests",
+      "Pydantic",
+      "Pandas",
+      "SQLAlchemy",
+      "FastAPI",
+      "pytest",
+      "Docker",
+      "loguru",
+      "tenacity"
+    ],
+    "liveUrl": "https://hotel-analytics-scraper.vercel.app/",
+    "coverImage": "/image/projects/hotel-scraper/ss1.png",
+    "gallery": [
+      "/image/projects/hotel-scraper/ss1.png",
+      "/image/projects/hotel-scraper/ss2.png",
+      "/image/projects/hotel-scraper/ss3.png",
+      "/image/projects/hotel-scraper/ss4.png",
+      "/image/projects/hotel-scraper/ss5.png",
+      "/image/projects/hotel-scraper/ss6.png"
+    ],
+    "status": "Completed",
+    "accent": "dashboard",
+    "isDemo": false,
+    "featured": false
+  }
+]

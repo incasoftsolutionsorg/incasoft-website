@@ -16,7 +16,7 @@ This is a fast, responsive, single-page website built with React and TypeScript.
 
 - **Solutions:** 8 service areas, each with its own detail page
 - **Industries:** retail, hospitality, services, education, healthcare, finance, manufacturing and logistics
-- **Work / case studies:** demonstration projects with full case-study pages
+- **Work / case studies:** projects with full case-study pages and screenshot galleries
 - **Start a Project:** a 4-step discovery form that collects project requirements
 - **Contact:** contact form, WhatsApp, phone and email, plus a floating quick-contact button
 - **Dark / light theme:** follows the system setting, with an animated toggle and no flash on load
@@ -150,7 +150,7 @@ Most text is kept in plain TypeScript files under `src/data/`, so content change
 | `company.ts`            | Company name, tagline, phone, WhatsApp, email and social links |
 | `solutions.ts`          | Services and their detail pages |
 | `industries.ts`         | Industries and their related solutions |
-| `projects.ts`           | Portfolio / case studies |
+| `projects.json`         | Portfolio / case studies (order, `featured` for the home page, images in `public/image/projects/`) |
 | `process.ts`            | The "How we work" process steps |
 
 ---

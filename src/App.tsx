@@ -20,7 +20,7 @@ import { StartProjectPage } from "@/pages/StartProjectPage";
 import { NotFoundPage } from "@/pages/NotFoundPage";
 
 import { solutions } from "@/data/solutions";
-import { projects } from "@/data/projects";
+import { getProjectBySlug } from "@/data/projects";
 import { insights } from "@/data/insights";
 import { company } from "@/data/company";
 
@@ -92,14 +92,12 @@ function RouteView() {
     title = "Our Work | INCASOFT Solutions";
 
     desc =
-      "Demonstration case studies showing the kind of software systems INCASOFT Solutions designs and builds.";
+      "Software systems INCASOFT Solutions has designed and built — booking platforms, POS systems, management systems and analytics tools.";
   } else if (
     segments[0] === "work" &&
     segments[1]
   ) {
-    const project = projects.find(
-      (item) => item.slug === segments[1],
-    );
+    const project = getProjectBySlug(segments[1]);
 
     page = <CaseStudyPage slug={segments[1]} />;
 

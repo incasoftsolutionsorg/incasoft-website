@@ -1,6 +1,7 @@
 
 import { ArrowRight, BookOpen, Clock3 } from "lucide-react";
 import { useState } from "react";
+
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { Link } from "@/lib/router";
@@ -103,89 +104,91 @@ export function InsightsPage() {
                   <div
                     className="
                       relative
-                      flex
-                      min-h-[150px]
-                      items-end
+                      aspect-[16/9]
+                      w-full
                       overflow-hidden
                       bg-[hsl(var(--soft))]
-                      p-5
-                      sm:min-h-[165px]
-                      sm:p-6
                     "
                   >
+                    <img
+                      src={article.image}
+                      alt={article.title}
+                      loading={index < INITIAL_ARTICLES ? "eager" : "lazy"}
+                      className="
+                        h-full
+                        w-full
+                        object-cover
+                        transition-transform
+                        duration-700
+                        group-hover:scale-105
+                      "
+                    />
+
                     <div
                       className="
                         pointer-events-none
                         absolute
-                        -right-16
-                        -top-16
-                        h-40
-                        w-40
-                        rounded-full
-                        bg-accent/10
-                        blur-3xl
-                        transition-transform
-                        duration-700
-                        group-hover:scale-125
+                        inset-0
+                        bg-gradient-to-t
+                        from-black/50
+                        via-black/10
+                        to-transparent
                       "
                       aria-hidden="true"
                     />
 
                     <div
                       className="
-                        relative
+                        absolute
+                        bottom-4
+                        left-4
                         flex
-                        w-full
-                        items-start
-                        justify-between
-                        gap-4
+                        h-10
+                        w-10
+                        items-center
+                        justify-center
+                        rounded-xl
+                        border
+                        border-white/20
+                        bg-black/30
+                        text-white
+                        backdrop-blur-md
+                        transition-all
+                        duration-300
+                        group-hover:border-accent/50
+                        group-hover:bg-accent
+                        group-hover:text-[#06202E]
                       "
                     >
+                      <BookOpen
+                        className="h-[17px] w-[17px]"
+                        aria-hidden="true"
+                      />
+                    </div>
+
+                    {article.featured && (
                       <span
                         className="
-                          flex
-                          h-11
-                          w-11
-                          shrink-0
-                          items-center
-                          justify-center
-                          rounded-xl
+                          absolute
+                          right-4
+                          top-4
+                          rounded-full
                           border
-                          border-border
-                          bg-background
-                          text-heading
-                          shadow-sm
-                          transition-all
-                          duration-300
-                          group-hover:border-accent/40
-                          group-hover:bg-accent
-                          group-hover:text-[#06202E]
+                          border-white/20
+                          bg-black/30
+                          px-3
+                          py-1.5
+                          text-[9px]
+                          font-bold
+                          uppercase
+                          tracking-[0.12em]
+                          text-white
+                          backdrop-blur-md
                         "
                       >
-                        <BookOpen
-                          className="h-[18px] w-[18px]"
-                          aria-hidden="true"
-                        />
+                        Popular
                       </span>
-
-                      {article.featured && (
-                        <span
-                          className="
-                            rounded-full
-                            bg-accent/10
-                            px-2.5
-                            py-1
-                            text-[9px]
-                            font-bold
-                            uppercase
-                            tracking-[0.12em]
-                            text-accent
-                          "
-                        >
-                          Popular
-                        </span>
-                      )}
-                    </div>
+                    )}
                   </div>
 
                   <div
@@ -237,6 +240,7 @@ export function InsightsPage() {
                           className="h-3 w-3"
                           aria-hidden="true"
                         />
+
                         {article.readTime}
                       </span>
                     </div>

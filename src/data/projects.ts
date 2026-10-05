@@ -1,3 +1,4 @@
+
 export interface Project {
   slug: string;
   title: string;
@@ -8,9 +9,13 @@ export interface Project {
   solution: string;
   features: string[];
   technology: string[];
-  /** Visual accent for the demo mock UI */
+  results?: string[];
+
+  /** Visual accent for the project mock UI */
   accent: "pos" | "dashboard" | "service";
-  isDemo: true;
+
+  /** True when the project is a demonstration project */
+  isDemo: boolean;
 }
 
 export const projects: Project[] = [
@@ -32,10 +37,18 @@ export const projects: Project[] = [
       "Customer accounts and loyalty tracking",
       "Daily, weekly and custom sales reports",
     ],
-    technology: ["React", "TypeScript", "Node.js", "PostgreSQL", "REST API", "Docker"],
+    technology: [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "PostgreSQL",
+      "REST API",
+      "Docker",
+    ],
     accent: "pos",
     isDemo: true,
   },
+
   {
     slug: "business-operations-dashboard",
     title: "Business Operations Dashboard",
@@ -54,10 +67,18 @@ export const projects: Project[] = [
       "Role-based views for management and teams",
       "Scheduled report exports",
     ],
-    technology: ["Next.js", "TypeScript", "Node.js", "PostgreSQL", "Charting", "Cloud"],
+    technology: [
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "PostgreSQL",
+      "Charting",
+      "Cloud",
+    ],
     accent: "dashboard",
     isDemo: true,
   },
+
   {
     slug: "service-management-platform",
     title: "Service Management Platform",
@@ -76,8 +97,16 @@ export const projects: Project[] = [
       "Quotation-to-invoice workflow",
       "Service history per customer",
     ],
-    technology: ["React", "TypeScript", "Node.js", "PostgreSQL", "SMS/WhatsApp API", "Cloud"],
+    technology: [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "PostgreSQL",
+      "SMS/WhatsApp API",
+      "Cloud",
+    ],
     accent: "service",
     isDemo: true,
   },
 ];
+

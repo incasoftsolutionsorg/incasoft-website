@@ -14,6 +14,8 @@ export function CaseStudyPage({ slug }: { slug: string }) {
 
   if (!project) return <NotFoundPage />;
 
+  const hasResults = Boolean(project.results?.length);
+
   return (
     <>
       {/* =========================================================
@@ -205,48 +207,79 @@ export function CaseStudyPage({ slug }: { slug: string }) {
               <Reveal>
                 <h2 className="eyebrow">Results</h2>
 
-                <div
-                  className="
-                    mt-3
-                    max-w-xl
-                    rounded-xl
-                    border
-                    border-dashed
-                    border-border
-                    bg-[hsl(var(--soft))]
-                    p-4
-                    sm:mt-4
-                    sm:p-5
-                  "
-                >
-                  <p
+                {hasResults ? (
+                  <ul
                     className="
-                      text-[13px]
-                      leading-relaxed
-                      text-muted-foreground
-                      sm:text-sm
+                      mt-4
+                      grid
+                      gap-3
+                      sm:grid-cols-2
                     "
                   >
-                    This is a demonstration project, so no client metrics
-                    are shown. For real projects, measurable outcomes are
-                    agreed with the client up front and reported here.
-                  </p>
+                    {project.results?.map((result) => (
+                      <li
+                        key={result}
+                        className="
+                          rounded-xl
+                          border
+                          border-border
+                          bg-[hsl(var(--soft))]
+                          p-4
+                          text-[13px]
+                          font-medium
+                          leading-relaxed
+                          text-heading
+                          sm:p-5
+                          sm:text-sm
+                        "
+                      >
+                        {result}
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <div
+                    className="
+                      mt-3
+                      max-w-xl
+                      rounded-xl
+                      border
+                      border-dashed
+                      border-border
+                      bg-[hsl(var(--soft))]
+                      p-5
+                      sm:mt-4
+                      sm:p-6
+                    "
+                  >
+                    <p
+                      className="
+                        text-[13px]
+                        font-medium
+                        leading-relaxed
+                        text-heading
+                        sm:text-sm
+                      "
+                    >
+                      No client results are published for this
+                      demonstration project.
+                    </p>
 
-                  <span
-                    className="
-                      mt-2
-                      block
-                      break-words
-                      text-[12px]
-                      font-semibold
-                      leading-relaxed
-                      text-heading/60
-                      sm:text-sm
-                    "
-                  >
-                    [ADD PROJECT RESULTS HERE]
-                  </span>
-                </div>
+                    <p
+                      className="
+                        mt-2
+                        text-[12px]
+                        leading-relaxed
+                        text-muted-foreground
+                        sm:text-sm
+                      "
+                    >
+                      Approved client case studies will include measurable
+                      outcomes here when results are available and cleared
+                      for public sharing.
+                    </p>
+                  </div>
+                )}
               </Reveal>
             </div>
 
@@ -367,7 +400,7 @@ export function CaseStudyPage({ slug }: { slug: string }) {
                           sm:text-xs
                         "
                       >
-                        Demo
+                        Demonstration
                       </dd>
                     </div>
                   </dl>
@@ -479,3 +512,4 @@ export function CaseStudyPage({ slug }: { slug: string }) {
     </>
   );
 }
+

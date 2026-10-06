@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { CheckCircle2, Loader2, Send } from "lucide-react";
+import { Loader2, RotateCcw, Send } from "lucide-react";
+import { SentSuccess } from "@/components/SentSuccess";
 import { submitLead, validateEmail } from "@/lib/contact";
 import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
@@ -39,11 +40,7 @@ export function ContactForm() {
     if (result.ok) {
       setStatus("success");
       trackEvent("contact_submission", { kind: "contact" });
-      setNote(
-        result.via === "mailto"
-          ? "Your email app should have opened with your message pre-filled — just press send."
-          : "We've received your message and will reply soon.",
-      );
+      setNote("We've received your message and will reply soon.");
     } else {
       setStatus("error");
       setNote(result.error ?? "Something went wrong. Please try again or reach us on WhatsApp.");
@@ -52,18 +49,22 @@ export function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="flex h-full min-h-[320px] flex-col items-center justify-center rounded-2xl border border-emerald-200 bg-emerald-50/60 p-8 text-center" role="status">
-        <CheckCircle2 className="h-12 w-12 text-emerald-500" aria-hidden="true" />
-        <h3 className="mt-5 font-display text-xl font-bold text-heading">Message ready.</h3>
-        <p className="mt-2 max-w-sm text-sm text-muted-foreground">{note}</p>
-        <button
-          type="button"
-          onClick={() => { setForm({ name: "", email: "", company: "", message: "", website: "" }); setStatus("idle"); }}
-          className="mt-6 min-h-[44px] rounded-full border border-border bg-card px-5 py-2.5 text-sm font-semibold text-heading transition-colors hover:border-accent"
-        >
-          Send another message
-        </button>
-      </div>
+      <SentSuccess
+        className="h-full min-h-[360px]"
+        title={<>Message sent{form.name ? `, ${form.name.split(" ")[0]}` : ""}!</>}
+        action={
+          <button
+            type="button"
+            onClick={() => { setForm({ name: "", email: "", company: "", message: "", website: "" }); setStatus("idle"); }}
+            className="inline-flex min-h-[44px] items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-semibold text-heading transition-colors hover:border-accent"
+          >
+            <RotateCcw className="h-4 w-4" aria-hidden="true" />
+            Send another message
+          </button>
+        }
+      >
+        {note}
+      </SentSuccess>
     );
   }
 

@@ -79,11 +79,17 @@ Then open **http://localhost:3000** in your browser.
 
 ## Environment Variables (Optional)
 
-The site works without any configuration. To turn on optional features, create a `.env.local` file in the project root:
+Create a `.env.local` file in the project root for local development, and add the same variables in Vercel → Project → Settings → Environment Variables for production. The contact forms need the Gmail variables to send email:
 
 ```env
-# POST endpoint for contact and discovery form submissions (JSON).
-# If not set, forms open a pre-filled email to the company address instead.
+# Contact form email (used by the /api/contact serverless function).
+# Messages are sent from this Gmail account to CONTACT_TO (defaults to GMAIL_USER),
+# with the visitor set as Reply-To.
+GMAIL_USER=incasoftsolutions@gmail.com
+GMAIL_APP_PASSWORD=xxxxxxxxxxxxxxxx   # Google Account → Security → App passwords
+CONTACT_TO=incasoftsolutions@gmail.com
+
+# Optional: send form submissions to a different endpoint instead of /api/contact.
 VITE_CONTACT_ENDPOINT=https://your-api.example.com/leads
 
 # Analytics provider: "ga4" or "plausible".

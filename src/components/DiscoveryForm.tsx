@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, Check, CheckCircle2, Loader2, RotateCcw, Send } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, Loader2, RotateCcw, Send } from "lucide-react";
+import { SentSuccess } from "@/components/SentSuccess";
 import { submitLead, validateEmail } from "@/lib/contact";
 import { trackEvent } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
@@ -114,11 +115,7 @@ export function DiscoveryForm() {
     if (result.ok) {
       setStatus("success");
       trackEvent("contact_submission", { kind: "discovery" });
-      setSubmitNote(
-        result.via === "mailto"
-          ? "Your email app should have opened with the details pre-filled — just press send."
-          : "We've received your project details.",
-      );
+      setSubmitNote("We've received your project details.");
     } else {
       setStatus("error");
       setSubmitNote(result.error ?? "Something went wrong. Please try again or reach us on WhatsApp.");
@@ -129,26 +126,21 @@ export function DiscoveryForm() {
 
   if (status === "success") {
     return (
-      <motion.div
-        initial={{ opacity: 0, scale: 0.96 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="rounded-2xl border border-emerald-200 bg-emerald-50/60 p-8 text-center sm:p-12"
-        role="status"
+      <SentSuccess
+        title={<>Thank you, {form.name.split(" ")[0]}!</>}
+        action={
+          <button
+            type="button"
+            onClick={() => { setForm(initial); setStep(1); setStatus("idle"); }}
+            className="inline-flex min-h-[44px] items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-semibold text-heading transition-colors hover:border-accent"
+          >
+            <RotateCcw className="h-4 w-4" aria-hidden="true" />
+            Submit another idea
+          </button>
+        }
       >
-        <CheckCircle2 className="mx-auto h-12 w-12 text-emerald-500" aria-hidden="true" />
-        <h3 className="mt-5 font-display text-2xl font-bold text-heading">Thank you, {form.name.split(" ")[0]}.</h3>
-        <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
-          {submitNote} We'll review your {form.projectType.toLowerCase()} idea and get back to you shortly.
-        </p>
-        <button
-          type="button"
-          onClick={() => { setForm(initial); setStep(1); setStatus("idle"); }}
-          className="mt-7 inline-flex min-h-[44px] items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-sm font-semibold text-heading transition-colors hover:border-accent"
-        >
-          <RotateCcw className="h-4 w-4" aria-hidden="true" />
-          Submit another idea
-        </button>
-      </motion.div>
+        {submitNote} We'll review your {form.projectType.toLowerCase()} idea and get back to you shortly.
+      </SentSuccess>
     );
   }
 

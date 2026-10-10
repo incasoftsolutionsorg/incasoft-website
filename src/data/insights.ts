@@ -27,7 +27,7 @@ export const insights: Insight[] = [
     readTime: "6 min read",
     date: "October 5, 2026",
     featured: true,
-    image: "/image/custom-software.jpg",
+    image: "/image/custom-software.webp",
     content: [
       {
         paragraphs: [
@@ -75,7 +75,7 @@ export const insights: Insight[] = [
     readTime: "7 min read",
     date: "October 2, 2026",
     featured: true,
-    image: "/image/pos-erp.jpg",
+    image: "/image/pos-erp.webp",
     content: [
       {
         paragraphs: [
@@ -125,7 +125,7 @@ export const insights: Insight[] = [
     readTime: "5 min read",
     date: "September 28, 2026",
     featured: true,
-    image: "/image/ai-business.jpg",
+    image: "/image/ai-business.webp",
     content: [
       {
         paragraphs: [
@@ -165,7 +165,7 @@ export const insights: Insight[] = [
       "Manual processes can become expensive as a business grows. Learn how automation can improve efficiency, consistency and visibility.",
     readTime: "6 min read",
     date: "September 24, 2026",
-    image: "/image/business-automation.jpg",
+    image: "/image/business-automation.webp",
     content: [
       {
         paragraphs: [
@@ -204,7 +204,7 @@ export const insights: Insight[] = [
       "Choosing the right platform depends on your customers, workflows and business goals. Here is how to approach the decision.",
     readTime: "5 min read",
     date: "September 20, 2026",
-    image: "/image/web-mobile-app.jpg",
+    image: "/image/web-mobile-app.webp",
     content: [
       {
         paragraphs: [
@@ -242,7 +242,7 @@ export const insights: Insight[] = [
       "Modern businesses often depend on multiple systems. API integration helps these systems communicate and creates a more connected workflow.",
     readTime: "6 min read",
     date: "September 16, 2026",
-    image: "/image/api-integration.jpg",
+    image: "/image/api-integration.webp",
     content: [
       {
         paragraphs: [
@@ -281,7 +281,7 @@ export const insights: Insight[] = [
       "Both cloud and on-premise systems have their advantages. Understanding the differences can help businesses choose the right approach.",
     readTime: "7 min read",
     date: "September 12, 2026",
-    image: "/image/cloud-software.jpg",
+    image: "/image/cloud-software.webp",
     content: [
       {
         paragraphs: [
@@ -318,7 +318,7 @@ export const insights: Insight[] = [
       "Accurate inventory data helps businesses reduce waste, avoid stock problems and make better purchasing decisions.",
     readTime: "6 min read",
     date: "September 8, 2026",
-    image: "/image/inventory-management.jpg",
+    image: "/image/inventory-management.webp",
     content: [
       {
         paragraphs: [
@@ -355,7 +355,7 @@ export const insights: Insight[] = [
       "Small businesses are increasingly dependent on digital systems. These practical security measures can help protect business data and applications.",
     readTime: "8 min read",
     date: "September 4, 2026",
-    image: "/image/cybersecurity.jpg",
+    image: "/image/cybersecurity.webp",
     content: [
       {
         paragraphs: [
